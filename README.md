@@ -1,2 +1,2 @@
 # kyynn.github.io
-Ngak punya money bangun web sendiri
+Ngak punya money buat bikin web sendiri
