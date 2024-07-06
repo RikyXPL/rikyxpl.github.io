@@ -1,87 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kyynn</title>
-</head>
-<style>
-    @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
-
-* {
-	margin: 10px;
-	padding: 10px;
-	box-sizing: border-box;
-	font-family: "Poppins", sans-serif;
-}
-
-body {
-	display: flex;
-	background: #000;
-	min-height: 100vh;
-	align-items: center;
-	justify-content: center;
-}
-
-.content {
-	position: relative;
-}
-
-.content h2 {
-	color: #fff;
-	font-size: 8em;
-	position: absolute;
-	transform: translate(-50%, -50%);
-}
-
-.content h2:nth-child(1) {
-	color: transparent;
-	-webkit-text-stroke: 2px yellow;
-}
-
-.content h2:nth-child(2) {
-	color: red;
-	animation: animate 4s ease-in-out infinite;
-}
-
-@keyframes animate {
-	0%,
-	100% {
-		clip-path: polygon(
-			0% 45%,
-			16% 44%,
-			33% 50%,
-			54% 60%,
-			70% 61%,
-			84% 59%,
-			100% 52%,
-			100% 100%,
-			0% 100%
-		);
-	}
-
-	50% {
-		clip-path: polygon(
-			0% 60%,
-			15% 65%,
-			34% 66%,
-			51% 62%,
-			67% 50%,
-			84% 45%,
-			100% 46%,
-			100% 100%,
-			0% 100%
-		);
-	}
-}
-
-</style>
-<body>
-    <section>
-        <div class="content">
-            <h2>RikyXDZ</h2>
-            <h2>RikyXDZ</h2>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            src="https://apis.google.com/js/platform.js"
+            async
+            defer
+        ></script>
+        <meta
+            name="google-signin-client_id"
+            content="YOUR_CLIENT_ID.apps.googleusercontent.com"
+        />
+        <title>Gabuts</title>
+        <link rel="stylesheet" href="styles.css" type="text/css" media="all" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Login ke Google</h1>
+            <div class="g-signin2 login" data-onsuccess="onSignIn"></div>
+            <div class="bling">
+              <h5>Tested by Riky Ripaldo</h5>
+              <h5>Tested by Riky Ripaldo</h5>
+            </div>
         </div>
-    </section>
-</body>
+        <script type="text/javascript" charset="utf-8">
+            function onSignIn(googleUser) {
+                var profile = googleUser.getBasicProfile();
+                console.log("ID: " + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                console.log("Name: " + profile.getName());
+                console.log("Image URL: " + profile.getImageUrl());
+                console.log("Email: " + profile.getEmail()); // This is null if the 'email' scope is not present.a
+            }
+        </script>
+    </body>
 </html>
