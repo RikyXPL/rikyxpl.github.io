@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Riky Ripaldo</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="453256167677-l0lbn5e7p922t1h3adiegbd3ls9gnrok.apps.googleusercontent.com"/>
+    </head>
+    <body>
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="bg.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="login-form">
+            <img
+                id="images"
+                class="users"
+                src="https://avatars.githubusercontent.com/u/64513539?s=96&v=4"
+                alt="Riky Ripaldo"
+            />
+            <form action="login.html" method="get" target="_blank">
+                <button class="g-signin2" type="submit" data-onsuccess="onSignIn">Login</button>
+            </form>
+        </div>
+
+        <script type="text/javascript">
+          window.onload = function() {
+            var music = new Audio('bg.mp4');
+            music.play();
+          };
+          document.getElementById("images").addEventListener("click", function () {
+            window.open("https://api.whatsapp.com/send?phone=6285789116608&text=Assalamualaikum", "_blank");
+          });
+        </script>
+    </body>
+</html>
