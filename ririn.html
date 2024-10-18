@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hallo Ririn</title>
+    <style type="text/css">
+        body {
+            background-color: #fce4ec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            font-size: 2em;
+            color: #e91e63;
+            width: 80%;
+        }
+
+        .typing-text {
+            border-right: 2px solid #e91e63;
+            padding-right: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: blink 0.75s step-end infinite;
+        }
+
+        .bucin {
+            font-size: 3em;
+            color: #ffffff;
+            text-shadow: 2px 2px 5px #ff1744;
+            margin-bottom: 10px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        button {
+            z-index: 2;
+            position: relative;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            background-color: #e91e63;
+            color: white;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #f06292;
+        }
+
+        #tolak {
+            background-color: #d32f2f;
+        }
+
+        #tolak:hover {
+            background-color: #f44336;
+        }
+
+        .hearts {
+            z-index: 1;
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+        }
+
+        .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #e91e63;
+            transform: rotate(45deg);
+            animation: float 7s infinite ease-in-out;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #e91e63;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -15px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: -15px;
+            top: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(45deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="bucin">Hallo Ririn ❤️</h1>
+        <p class="typing-text" id="message"></p><br>
+        <button id="setuju">Jawab</button>
+        <button id="tolak">Cuekin</button>
+    </div>
+    <div class="hearts"></div>
+    <script type="text/javascript">
+        const messageElement = document.getElementById('message');
+        const tolak = document.getElementById('tolak');
+
+        const message = "Kamu ngapain aja hari ini ?";
+
+        let index = 0;
+
+        function typeEffect() {
+            if (index < message.length) {
+                messageElement.innerHTML += message.charAt(index);
+                index++;
+                setTimeout(typeEffect, 100);  // Waktu per huruf (100ms)
+            }
+        }
+
+        function pindah() {
+            const x = Math.floor(Math.random() * window.innerWidth - tolak.offsetWidth);
+            const y = Math.floor(Math.random() * window.innerHeight - tolak.offsetHeight);
+
+            tolak.style.position = 'absolute';
+            tolak.style.left = x + 'px';
+            tolak.style.top = y + 'px';
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+
+            document.querySelector('.hearts').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        document.getElementById("setuju").addEventListener("click", function () {
+            window.location.href = "https://api.whatsapp.com/send?phone=6285789116608&text=Sedang%20memikirkan%20kamu%20%3A%29";
+        });
+
+        tolak.addEventListener('click', pindah);
+        tolak.addEventListener("mouseover", pindah);
+
+        setInterval(createHeart, 100);
+        window.onload = typeEffect;
+    </script>
+</body>
+
+</html>
