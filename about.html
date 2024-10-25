@@ -4,122 +4,161 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Saya</title>
-    <style type="text/css">
-      /* Reset default browser styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <style>
+        /* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* Body */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-}
+        /* Body */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
 
-/* Header */
-header {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
-}
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #6b0f8a, #ff3c3c);
+            color: #fff;
+            padding: 10px 0;
+        }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
-}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
 
-nav .logo {
-    font-size: 24px;
-    font-weight: bold;
-}
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
 
-nav ul {
-    list-style: none;
-    display: flex;
-}
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
 
-nav ul li {
-    margin-left: 20px;
-}
+        nav ul li {
+            margin-left: 20px;
+        }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
 
-/* Hero Section */
-.hero {
-    background: #007bff;
-    color: white;
-    padding: 100px 20px;
-    text-align: center;
-}
+        nav ul li a:hover {
+            color: #ffeb3b;
+        }
 
-.hero h1 {
-    font-size: 36px;
-}
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #007bff, #00bcd4);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
 
-.hero p {
-    font-size: 18px;
-}
+        .hero h1 {
+            font-size: 36px;
+            animation: fadeIn 1s ease;
+        }
 
-.cta-button {
-    display: inline-block;
-    background: #fff;
-    color: #007bff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-}
+        .hero p {
+            font-size: 18px;
+        }
 
-/* About Section */
-.about {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
+        .cta-button {
+            display: inline-block;
+            background: #ffeb3b;
+            color: #007bff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background 0.3s, transform 0.3s;
+        }
 
-/* Projects Section */
-.projects {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-}
+        .cta-button:hover {
+            background: #fdd835;
+            transform: scale(1.1);
+        }
 
-.project {
-    background: #fff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+        /* About Section */
+        .about {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
 
-/* Contact Section */
-.contact {
-    text-align: center;
-    margin: 50px 0;
-}
+        .about h2 {
+            margin-bottom: 15px;
+        }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #333;
-    color: #fff;
-}
+        /* Projects Section */
+        .projects {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
 
+        .project {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Fade-in class */
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -135,39 +174,62 @@ footer {
     </header>
 
     <section class="hero">
-        <h1>Assalamualaikum, Saya Riky Ripaldo</h1>
-        <p>Ingin Menjadi Programer Handal Namun Engan Ngoding</p>
+        <h1>Halo, Saya Riky</h1>
+        <p>Seorang Pengembang Web yang Passionate</p>
         <a href="#projects" class="cta-button">Lihat Proyek Saya</a>
     </section>
 
     <section id="about" class="about">
         <h2>Tentang Saya</h2>
-        <p>Saya seorang yang bercita cita menjadi fullstack developer namun engan ngoding</p>
+        <p>Saya adalah pengembang web yang fokus pada pengembangan front-end. Saya memiliki pengalaman dalam HTML, CSS, dan JavaScript, serta teknologi lainnya.</p>
     </section>
 
     <section id="projects" class="projects">
         <h2>Proyek Saya</h2>
         <div class="project">
-            <h3>Pernah ganti password wifi tetangga</h3>
-            <p>Malas cerita.</p>
+            <h3>Proyek 1</h3>
+            <p>Deskripsi singkat tentang proyek ini.</p>
         </div>
         <div class="project">
-            <h3>Bikin projek arduino tapi gagal</h3>
-            <p>Lupa gimana kejadiannya.</p>
+            <h3>Proyek 2</h3>
+            <p>Deskripsi singkat tentang proyek ini.</p>
         </div>
         <div class="project">
-            <h3>Lagi ngak ada proyek</h3>
-            <p>Ntahlah.</p>
+            <h3>Proyek 3</h3>
+            <p>Deskripsi singkat tentang proyek ini.</p>
         </div>
     </section>
 
     <section id="contact" class="contact">
         <h2>Kontak</h2>
-        <p>Email: <a href="mailto:rikyripaldo@icloud.com">rikyripaldo@icloud.com</a></p>
+        <p>Email: <a href="mailto:riky@example.com">riky@example.com</a></p>
     </section>
 
     <footer>
         <p>&copy; 2024 Riky. Semua Hak Dilindungi.</p>
     </footer>
+
+    <script>
+        // Animasi saat halaman di-scroll
+        const sections = document.querySelectorAll('section');
+        const options = {
+            root: null,
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                } else {
+                    entry.target.classList.remove('fade-in');
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
